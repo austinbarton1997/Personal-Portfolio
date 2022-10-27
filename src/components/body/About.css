@@ -1,0 +1,30 @@
+.avatar {
+  width: 400px !important;
+  height: 400px !important;
+}
+
+.container {
+  display: flexbox;
+  justify-content: left;
+  max-width: 45%;
+  word-wrap: break-word;
+  margin-left: 5%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.author {
+  display: flex;
+
+  z-index: 100;
+  justify-content: right;
+  max-width: 45%;
+  word-wrap: break-word;
+  margin-left: 15%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

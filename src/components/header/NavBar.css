@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap");
+
+.navbarFont {
+  font-size: 20px !important;
+  color: black !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+
+.navbarFonts {
+  padding-top: 5px;
+  font-size: 10px !important;
+  color: black !important;
+  font-family: "Source Sans Pro", sans-serif !important;
+}
