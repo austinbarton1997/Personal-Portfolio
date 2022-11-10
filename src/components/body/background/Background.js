@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 function Background(props) {
     return (
-        <div class="mainContainer">
+        <div>
 
         </div>
     );

@@ -1,45 +1,30 @@
 import * as React from 'react';
-import { useState } from "react";
-import './NavBar.css'
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+
 import Button from '@mui/material/Button';
-import DropDown from './drop_down/DropDown';
+
+import styled, { ThemeProvider } from "styled-components";
+import ReactDOM from "react-dom";
+import Avatar from "@material-ui/core/Avatar";
+import { StylesProvider, useTheme } from "@material-ui/core/styles";
 
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Work', 'About', 'Contact'];
+const navItems = ['Home', 'About', 'Work', 'Contact'];
 
-
-
-
-function Navbar(props) {
-
-    const [bgColour, setBgColour] = useState("#fafafa");
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const appStyles = {
-        background: `red`
-    }
-
+function NavBar(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -49,15 +34,12 @@ function Navbar(props) {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 4 }}>
-
-            </Typography>
             <Divider />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <ListItemText style={{ fontFamily: "'Inconsolata', monospace" }} primary={item} />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -65,20 +47,19 @@ function Navbar(props) {
         </Box>
     );
 
+
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-
-        <Box className="center" sx={{ display: 'flex' }}>
-
-            <AppBar style={{ marginRight: "5%", boxShadow: 'none', background: 'none' }} component="nav">
+        <Box sx={{ display: 'flex' }}>
+            <AppBar component="nav" elevation={0} style={{ background: 'NONE' }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
+                        sx={{ mr: 2, display: { color: '#000000', sm: 'none' } }}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -88,13 +69,9 @@ function Navbar(props) {
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
                     </Typography>
-                    <Box onMouseEnter={() => setBgColour("#c83f49")}
-                        onMouseLeave={() => setBgColour("#fafafa")} className="navbarFont" >
-                        {navItems.map((item, i) => (
-                            <Button className="navbarFont" key={item} sx={{ display: 'flexbox', marginTop: '10px', padding: '15px' }}>
-                                <Typography className="navbarFonts" key={item} sx={{ display: 'flexbox' }}>
-                                    0{i}.
-                                </Typography>
+                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        {navItems.map((item) => (
+                            <Button key={item} sx={{ fontFamily: "'Inconsolata', monospace", padding: '20px', fontSize: '20px', color: '#000000' }}>
                                 {item}
                             </Button>
                         ))}
@@ -118,14 +95,12 @@ function Navbar(props) {
                     {drawer}
                 </Drawer>
             </Box>
-            <Box component="main" sx={{ p: 3 }}>
-                <Toolbar />
-            </Box>
-        </Box >
+
+        </Box>
     );
 }
 
-Navbar.propTypes = {
+NavBar.propTypes = {
     /**
      * Injected by the documentation to work in an iframe.
      * You won't need it on your project.
@@ -133,4 +108,4 @@ Navbar.propTypes = {
     window: PropTypes.func,
 };
 
-export default Navbar;
+export default NavBar;

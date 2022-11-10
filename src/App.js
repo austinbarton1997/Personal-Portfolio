@@ -7,7 +7,7 @@ import Background from './components/body/background/Background'
 
 function App() {
   return (
-    <div>
+    <div class="mainContainer">
       <Navbar />
       <About />
       <Background />

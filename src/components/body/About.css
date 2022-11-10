@@ -4,27 +4,21 @@
 }
 
 .container {
-  display: flexbox;
-  justify-content: left;
-  max-width: 45%;
+  max-width: 60%;
   word-wrap: break-word;
   margin-left: 5%;
   position: absolute;
-  top: 50%;
+  top: 60%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 
 .author {
   display: flex;
+  margin-left: 75%;
+}
 
-  z-index: 100;
-  justify-content: right;
-  max-width: 45%;
-  word-wrap: break-word;
-  margin-left: 15%;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+@media (max-width: 1000px) {
+  .author {
+  }
 }
